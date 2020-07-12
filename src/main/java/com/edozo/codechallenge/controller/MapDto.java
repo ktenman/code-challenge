@@ -1,5 +1,7 @@
 package com.edozo.codechallenge.controller;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -9,6 +11,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Builder
 @Getter
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class MapDto {
 
     private final Integer id;
@@ -21,7 +24,7 @@ public class MapDto {
 
     @AllArgsConstructor
     @Builder
-    @Getter
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     public static class Coordinates {
         private final Double bottomLeftX;
         private final Double bottomLeftY;
