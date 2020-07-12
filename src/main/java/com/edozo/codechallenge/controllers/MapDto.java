@@ -1,4 +1,4 @@
-package com.edozo.java.test.controllers;
+package com.edozo.codechallenge.controllers;
 
 import java.util.Objects;
 
