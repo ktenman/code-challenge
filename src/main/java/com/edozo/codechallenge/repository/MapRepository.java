@@ -1,6 +1,6 @@
 package com.edozo.codechallenge.repository;
 
-import com.edozo.codechallenge.MapEntity;
+import com.edozo.codechallenge.domain.MapEntity;
 import com.edozo.codechallenge.dao.MapDao;
 
 import java.util.List;

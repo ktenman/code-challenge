@@ -1,4 +1,4 @@
-package com.edozo.codechallenge.controller;
+package com.edozo.codechallenge.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
