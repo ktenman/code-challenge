@@ -1,18 +1,15 @@
 package com.edozo.codechallenge.controllers;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
 import java.util.Objects;
 
+@Getter
+@AllArgsConstructor
 public class MapDto {
 
     private final int id;
-
-    public MapDto(int id) {
-        this.id = id;
-    }
-
-    public int getId() {
-        return id;
-    }
 
     @Override
     public boolean equals(Object o) {
