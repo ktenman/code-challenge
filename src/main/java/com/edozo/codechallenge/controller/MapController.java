@@ -1,4 +1,4 @@
-package com.edozo.codechallenge.controllers;
+package com.edozo.codechallenge.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
