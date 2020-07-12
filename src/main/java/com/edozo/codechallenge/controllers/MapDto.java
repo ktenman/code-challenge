@@ -1,26 +1,32 @@
 package com.edozo.codechallenge.controllers;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
-import java.util.Objects;
+import java.time.LocalDateTime;
 
-@Getter
 @AllArgsConstructor
+@Builder
+@Getter
 public class MapDto {
 
-    private final int id;
+    private final Integer id;
+    private final Integer userId;
+    private final String address;
+    private final Coordinates coordinates;
+    private final LocalDateTime createdAt;
+    private final LocalDateTime updatedAt;
+    private final String downloadUrl;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        MapDto mapDto = (MapDto) o;
-        return id == mapDto.id;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
+    @AllArgsConstructor
+    @Builder
+    @Getter
+    public static class Coordinates {
+        private final Double bottomLeftX;
+        private final Double bottomLeftY;
+        private final Double topRightX;
+        private final Double topRightY;
     }
 }

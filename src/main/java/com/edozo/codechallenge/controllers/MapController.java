@@ -10,7 +10,7 @@ public class MapController {
     @GetMapping("/maps/{id}")
     public MapDto getMapById(@PathVariable("id") final int id) {
 
-        return new MapDto(id);
+        return MapDto.builder().id(id).build();
     }
 
 }
