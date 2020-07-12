@@ -1,48 +1,19 @@
-import org.springframework.boot.gradle.plugin.SpringBootPlugin
-buildscript {
-    repositories {
-        mavenCentral()
-        maven {
-            url "https://plugins.gradle.org/m2/"
-        }
-    }
-    dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.3.0.RELEASE")
-    }
-}
-
 plugins {
-    id("org.springframework.boot") version '2.2.0.RELEASE' apply false
-    id("io.spring.dependency-management") version '1.0.8.RELEASE'
-    id "jacoco"
-    id "java"
+    id 'org.springframework.boot' version '2.3.1.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+    id 'java'
 }
 
-allprojects {
-    group 'com.edozo'
-    version "0.0.1".toString()
-}
-
-compileJava   {
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = '8'
-}
+group = 'com.edozo'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
 
 repositories {
-    mavenLocal()
     mavenCentral()
 }
 
-dependencyManagement {
-    imports {
-        mavenBom(SpringBootPlugin.BOM_COORDINATES)
-    }
-
-    dependencies {
-    }
-
-    testCompile {
-    }
+ext {
+    set('springCloudVersion', "Hoxton.SR6")
 }
 
 configurations {
@@ -51,17 +22,26 @@ configurations {
 }
 
 dependencies {
-
     implementation "org.apache.logging.log4j:log4j-api"
     implementation "org.apache.logging.log4j:log4j-core"
     implementation "org.apache.logging.log4j:log4j-slf4j-impl"
     implementation "org.apache.logging.log4j:log4j-web"
     implementation "org.springframework.boot:spring-boot-starter-log4j2"
-
-    implementation "org.springframework.boot:spring-boot-starter-web"
-
-    testImplementation "org.junit.jupiter:junit-jupiter"
-    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine"
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
     testImplementation "org.assertj:assertj-core"
+    testImplementation 'org.springframework.cloud:spring-cloud-starter-contract-stub-runner'
 }
 
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
