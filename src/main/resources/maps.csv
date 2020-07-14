@@ -1,4 +1,4 @@
-id, userId, address, bottomLeftX, bottomLeftY, topRightY, topRightY, createdAt, updatedAt, downloadUrl
+id, userId, address, bottomLeftX, bottomLeftY, topRightX, topRightY, createdAt, updatedAt, downloadUrl
 122, 321, "Bag End, 1 Bagshot Row, Hobbiton, The Shire", 601519.775390625,	198284.912109375,	629290.771484375,	233514.404296875, 2018-10-17 14:25:35, 2018-10-17 14:25:35, "https://https://storage-development.s3.eu-west-2.amazonaws.com/321/122/map.png"
 123, 325, "Pallet Town, Kanto", 601519.775390626,	198284.912109385,	629290.771484385,	233514.404296875, 2019-08-21 16:30:00, 2019-08-22 16:00:00, "https://https://storage-development.s3.eu-west-2.amazonaws.com/325/123/map.png"
 124, 325, "Oakvale, Albion", 601519.775390628,	198284.912109384,	629290.771484383,	233514.404296872, 2019-09-20 16:30:00, 2019-10-01 16:00:00, "https://https://storage-development.s3.eu-west-2.amazonaws.com/325/124/map.png"

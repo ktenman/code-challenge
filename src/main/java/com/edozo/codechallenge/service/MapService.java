@@ -1,13 +1,24 @@
 package com.edozo.codechallenge.service;
 
-import com.edozo.codechallenge.dao.MapDao;
+import com.edozo.codechallenge.dto.CreateMapRequest;
+import com.edozo.codechallenge.dto.MapRequest;
+import com.edozo.codechallenge.dto.MapDto;
+import com.edozo.codechallenge.dto.UpdateMapRequest;
 
-import javax.annotation.Resource;
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
 
-public class MapService {
+public interface MapService {
 
-    @Resource
-    MapDao mapDao;
+    Set<MapDto> getAll();
 
+    Optional<MapDto> get(Integer id);
+
+    List<MapDto> search(String address);
+
+    void save(CreateMapRequest createMapRequest);
+
+    void update(UpdateMapRequest updateMapRequest);
 
 }
