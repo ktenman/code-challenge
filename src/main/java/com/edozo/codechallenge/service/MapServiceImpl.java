@@ -2,9 +2,7 @@ package com.edozo.codechallenge.service;
 
 import com.edozo.codechallenge.domain.MapEntity;
 import com.edozo.codechallenge.dto.CreateMapRequest;
-import com.edozo.codechallenge.dto.MapRequest;
 import com.edozo.codechallenge.dto.MapDto;
-import com.edozo.codechallenge.dto.UpdateMapRequest;
 import com.edozo.codechallenge.mapper.MapMapper;
 import com.edozo.codechallenge.repository.MapRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -54,12 +52,6 @@ public class MapServiceImpl implements MapService {
     @Override
     public void save(CreateMapRequest createMapRequest) {
         MapEntity mapEntity = mapMapper.toEntity(createMapRequest);
-        mapRepository.save(mapEntity);
-    }
-
-    @Override
-    public void update(UpdateMapRequest updateMapRequest) {
-        MapEntity mapEntity = mapMapper.toEntity(updateMapRequest);
         mapRepository.save(mapEntity);
     }
 

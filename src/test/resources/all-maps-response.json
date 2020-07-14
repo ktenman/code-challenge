@@ -1,0 +1,50 @@
+[
+  {
+    "id": 122,
+    "userId": 321,
+    "address": "Bag End, 1 Bagshot Row, Hobbiton, The Shire",
+    "coordinates": {
+      "bottomLeftX": 601519.775390625,
+      "bottomLeftY": 198284.912109375,
+      "topRightX": 629290.771484375,
+      "topRightY": 233514.404296875
+    },
+    "downloadUrl": "https://https://storage-development.s3.eu-west-2.amazonaws.com/321/122/map.png"
+  },
+  {
+    "id": 125,
+    "userId": 321,
+    "address": "Tar Valon, River Erinin, Dragonmount, Earth",
+    "coordinates": {
+      "bottomLeftX": 601513.775390628,
+      "bottomLeftY": 198283.912109384,
+      "topRightX": 629293.771484383,
+      "topRightY": 233314.404296872
+    },
+    "downloadUrl": "https://https://storage-development.s3.eu-west-2.amazonaws.com/321/125/map.png"
+  },
+  {
+    "id": 123,
+    "userId": 325,
+    "address": "Pallet Town, Kanto",
+    "coordinates": {
+      "bottomLeftX": 601519.775390626,
+      "bottomLeftY": 198284.912109385,
+      "topRightX": 629290.771484385,
+      "topRightY": 233514.404296875
+    },
+    "downloadUrl": "https://https://storage-development.s3.eu-west-2.amazonaws.com/325/123/map.png"
+  },
+  {
+    "id": 124,
+    "userId": 325,
+    "address": "Oakvale, Albion",
+    "coordinates": {
+      "bottomLeftX": 601519.775390628,
+      "bottomLeftY": 198284.912109384,
+      "topRightX": 629290.771484383,
+      "topRightY": 233514.404296872
+    },
+    "downloadUrl": "https://https://storage-development.s3.eu-west-2.amazonaws.com/325/124/map.png"
+  }
+]

@@ -3,11 +3,15 @@ package com.edozo.codechallenge.dto;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.validation.constraints.NotNull;
 
+@EqualsAndHashCode
+@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder

@@ -3,18 +3,22 @@ package com.edozo.codechallenge.dto;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
-@AllArgsConstructor
+@EqualsAndHashCode
+@ToString
 @Builder
-@Getter
+@AllArgsConstructor
+@NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class MapDto {
-
-    private final Integer id;
-    private final Integer userId;
-    private final String address;
-    private final Coordinates coordinates;
-    private final String downloadUrl;
-
+    private Integer id;
+    private Integer userId;
+    private String address;
+    private Coordinates coordinates;
+    private String downloadUrl;
 }
