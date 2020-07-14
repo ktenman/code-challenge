@@ -22,11 +22,11 @@ configurations {
 }
 
 dependencies {
-    implementation "org.apache.logging.log4j:log4j-api"
-    implementation "org.apache.logging.log4j:log4j-core"
-    implementation "org.apache.logging.log4j:log4j-slf4j-impl"
-    implementation "org.apache.logging.log4j:log4j-web"
-    implementation "org.springframework.boot:spring-boot-starter-log4j2"
+    implementation 'org.apache.logging.log4j:log4j-api'
+    implementation 'org.apache.logging.log4j:log4j-core'
+    implementation 'org.apache.logging.log4j:log4j-slf4j-impl'
+    implementation 'org.apache.logging.log4j:log4j-web'
+    implementation 'org.springframework.boot:spring-boot-starter-log4j2'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
@@ -38,7 +38,9 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok:1.18.12'
     testCompileOnly 'org.projectlombok:lombok:1.18.12'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.12'
-    testImplementation 'commons-io:commons-io:2.6'
+    implementation 'commons-io:commons-io:2.6'
+    implementation 'jakarta.validation:jakarta.validation-api:2.0.2'
+    implementation 'org.apache.commons:commons-csv:1.8'
 }
 
 dependencyManagement {
