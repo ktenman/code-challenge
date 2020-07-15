@@ -44,7 +44,7 @@ public class MapServiceImpl implements MapService {
     @Override
     public List<MapDto> search(String address) {
         return mapRepository.getAll().stream()
-                .filter(map -> map.getAddress().contains(address))
+                .filter(map -> map.getAddress().toLowerCase().contains(address.toLowerCase()))
                 .map(this::toDto)
                 .collect(toList());
     }
