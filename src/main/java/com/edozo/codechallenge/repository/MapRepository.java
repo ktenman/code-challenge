@@ -1,6 +1,7 @@
 package com.edozo.codechallenge.repository;
 
 import com.edozo.codechallenge.domain.MapEntity;
+import com.edozo.codechallenge.exception.CodeChallengeException;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.csv.CSVRecord;
 import org.springframework.stereotype.Service;
@@ -72,11 +73,22 @@ public class MapRepository {
         return this.maps;
     }
 
+    void setMaps(Set<MapEntity> maps) {
+        this.maps = maps;
+    }
+
     public void save(MapEntity mapEntity) {
         if (mapEntity.getId() == null) {
             mapEntity.setId(getNewId());
+            getAll().add(mapEntity);
+            return;
         }
-        this.maps.add(mapEntity);
+        MapEntity foundMapEntity = this.maps.stream()
+                .filter(m -> m.getId().equals(mapEntity.getId()))
+                .findFirst()
+                .orElseThrow(() -> new CodeChallengeException(String.format("MapEntity not found. %s", mapEntity)));
+        getAll().remove(foundMapEntity);
+        getAll().add(mapEntity);
     }
 
     private int getNewId() {
