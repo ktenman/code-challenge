@@ -1,0 +1,11 @@
+{
+  "userId" : 222,
+  "address" : "339 Commercial Road",
+  "downloadUrl" : "https://",
+  "coordinates" : {
+    "bottomLeftX" : 1,
+    "bottomLeftY" : 2,
+    "topRightX" : 3,
+    "topRightY" : 4
+  }
+}

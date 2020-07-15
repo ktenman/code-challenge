@@ -28,7 +28,7 @@ public class MapRepository {
     private Set<MapEntity> maps;
 
     @PostConstruct
-    void init() {
+    public void init() {
         log.info("Initializing maps");
         try {
             InputStream inputStream = currentThread().getContextClassLoader().getResourceAsStream(INPUT_DATA_FILE);

@@ -1,9 +1,11 @@
 package com.edozo.codechallenge.controller;
 
 import com.edozo.codechallenge.dto.MapDto;
+import com.edozo.codechallenge.repository.MapRepository;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
@@ -18,6 +20,7 @@ import static base.FileUtils.getJson;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -26,6 +29,9 @@ class MapControllerIntegrationTest {
 
     @Resource
     MapController mapController;
+
+    @Resource
+    MapRepository mapRepository;
 
     @Resource
     MappingJackson2HttpMessageConverter jacksonMessageConverter;
@@ -40,6 +46,7 @@ class MapControllerIntegrationTest {
         this.mockMvc = MockMvcBuilders.standaloneSetup(mapController)
                 .setMessageConverters(jacksonMessageConverter)
                 .build();
+        mapRepository.init();
     }
 
     @Test
@@ -78,5 +85,23 @@ class MapControllerIntegrationTest {
 
         assertThat(actualResponseList).hasSize(expectedResponseList.size());
         expectedResponseList.forEach(mapDto -> assertThat(actualResponseList).contains(mapDto));
+    }
+
+    @Test
+    void save() throws Exception {
+        ResultActions resultActions = mockMvc.perform(post("/maps")
+                .contentType(APPLICATION_JSON_VALUE)
+                .content(getJson("create-map-request.json")));
+
+        resultActions.andExpect(status().isOk());
+    }
+
+    @Test
+    @DisplayName("Validate against empty fields")
+    void saveWhenEmptyRequest() throws Exception {
+        ResultActions resultActions = mockMvc.perform(post("/maps")
+                .contentType(APPLICATION_JSON_VALUE));
+
+        resultActions.andExpect(status().isBadRequest());
     }
 }
