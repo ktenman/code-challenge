@@ -11,7 +11,7 @@ public interface MapService {
 
     Set<MapDto> getAll();
 
-    Optional<MapDto> get(Integer id);
+    Optional<MapDto> getMapById(Integer id);
 
     List<MapDto> search(String address);
 

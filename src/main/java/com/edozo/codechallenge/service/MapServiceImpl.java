@@ -34,7 +34,7 @@ public class MapServiceImpl implements MapService {
     }
 
     @Override
-    public Optional<MapDto> get(Integer id) {
+    public Optional<MapDto> getMapById(Integer id) {
         return mapRepository.getAll().stream()
                 .filter(map -> map.getId().equals(id))
                 .findFirst()

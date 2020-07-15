@@ -2,6 +2,7 @@ package com.edozo.codechallenge.controller;
 
 import com.edozo.codechallenge.dto.MapDto;
 import com.edozo.codechallenge.service.MapService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,8 +19,10 @@ public class MapController {
     private MapService mapService;
 
     @GetMapping("{id}")
-    public MapDto getMapById(@PathVariable("id") final int id) {
-        return MapDto.builder().id(id).build();
+    public ResponseEntity<MapDto> getMapById(@PathVariable("id") final int id) {
+        return mapService.getMapById(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
     }
 
     @GetMapping
